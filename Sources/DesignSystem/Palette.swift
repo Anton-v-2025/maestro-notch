@@ -21,15 +21,18 @@ import SwiftUI
 enum Palette {
     static let notch         = Color.black                    // #000000
     static let card          = Color.black                    // #000000
-    static let ringTrack     = Color(dark: .white.withAlphaComponent(0.188),
-                                     light: .black.withAlphaComponent(0.16))
+    // Maestro: gold chalk dust for the track instead of plain grey.
+    static let ringTrack     = Color(dark: NSColor(hex: 0xD4A855).withAlphaComponent(0.22),
+                                     light: NSColor(hex: 0x8A6A2A).withAlphaComponent(0.30))
     static let barTrack      = Color(dark: .white.withAlphaComponent(0.176),
                                      light: .black.withAlphaComponent(0.15))
 
-    static let ample         = Color(dark: NSColor(hex: 0x00FF88), light: NSColor(hex: 0x00A356))
-    static let watch         = Color(dark: NSColor(hex: 0xF2FF00), light: NSColor(hex: 0xB08800))
+    // Maestro palette: gold while there is plenty, warm amber when it is time to watch,
+    // Maestro red when it is critical.
+    static let ample         = Color(dark: NSColor(hex: 0xD4A855), light: NSColor(hex: 0x8A6A2A))
+    static let watch         = Color(dark: NSColor(hex: 0xE8B464), light: NSColor(hex: 0x9A5F24))
     /// Already 3.5:1 on white, so the warning colour is the same in both.
-    static let critical      = Color(hex: 0xFF3F00)           // orange
+    static let critical      = Color(hex: 0xCC0000)           // Maestro red
 
     // Generation-speed bands are independent of cloud quota usage.
     static let generationFast = Color(hex: 0x0A84FF)          // blue

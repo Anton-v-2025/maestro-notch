@@ -1,6 +1,6 @@
 name: Codenotch
 options:
-  bundleIdPrefix: com.vinz
+  bundleIdPrefix: ru.antonvart
   deploymentTarget:
     macOS: "15.0"
   createIntermediateGroups: true

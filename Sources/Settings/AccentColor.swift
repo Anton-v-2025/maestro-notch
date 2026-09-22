@@ -7,6 +7,7 @@ import SwiftUI
 /// labels and ordering change without losing an existing choice.
 enum AccentColorChoice: String, CaseIterable, Identifiable {
     case system
+    case maestro = "d4a855"
     case pink = "ff33e1"
     case red = "eb4236"
     case orange = "eb8436"
@@ -23,6 +24,7 @@ enum AccentColorChoice: String, CaseIterable, Identifiable {
     var title: String {
         switch self {
         case .system:   return L10n.t("Device accent color")
+        case .maestro:  return "#D4A855 Maestro"
         case .pink:     return "#FF33E1"
         case .red:      return "#EB4236"
         case .orange:   return "#EB8436"
@@ -39,6 +41,7 @@ enum AccentColorChoice: String, CaseIterable, Identifiable {
     var color: Color {
         switch self {
         case .system:   return Color(nsColor: .controlAccentColor)
+        case .maestro:  return Palette.ample
         case .pink:     return Color(hex: 0xFF33E1)
         case .red:      return Color(hex: 0xEB4236)
         case .orange:   return Color(hex: 0xEB8436)
@@ -54,7 +57,7 @@ enum AccentColorChoice: String, CaseIterable, Identifiable {
 }
 
 private struct CodenotchAccentColorKey: EnvironmentKey {
-    static let defaultValue = Color(nsColor: .controlAccentColor)
+    static let defaultValue = Palette.ample
 }
 
 extension EnvironmentValues {

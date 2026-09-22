@@ -802,7 +802,7 @@ final class Preferences: ObservableObject {
         // and a control that is missing by default is one nobody finds.
         self.showsMoveHandle = defaults.object(forKey: Keys.showsMoveHandle) as? Bool ?? true
         self.accentColor = defaults.string(forKey: Keys.accentColor)
-            .flatMap(AccentColorChoice.init(rawValue:)) ?? .system
+            .flatMap(AccentColorChoice.init(rawValue:)) ?? .maestro
         self.notchSurfaceStyle = defaults.string(forKey: Keys.notchSurfaceStyle)
             .flatMap(NotchSurfaceStyle.init(rawValue:)) ?? .glass
         let storedWatchLimit = defaults.object(forKey: Keys.watchLimit) as? Double ?? 0.50

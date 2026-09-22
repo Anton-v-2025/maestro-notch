@@ -56,7 +56,7 @@ enum ProviderGlyph: String, Codable, Equatable {
     /// glyph's ink to the same extent as Claude's.
     var opticalScale: CGFloat {
         switch self {
-        case .claude: return 0.97
+        case .claude: return 1.0
         case .cursor: return 0.97
         case .openai: return 0.94
         case .antigravity: return 1.0
@@ -141,6 +141,12 @@ struct ProviderGlyphView: View {
                 Image(nsImage: image)
                     .resizable()
                     .scaledToFit()
+            } else if glyph == .claude, let image = NSImage(named: "maestro-head") {
+                // Maestro: the conductor's head, in colour, clipped to the ring.
+                Image(nsImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(Circle())
             } else if let image = NSImage(named: glyph.assetName) {
                 Image(nsImage: image)
                     .renderingMode(.template)

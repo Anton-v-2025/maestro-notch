@@ -230,7 +230,8 @@ final class StatusItemController: NSObject, NSMenuDelegate {
         // Menu bar items are laid out on an 18pt square; taller and macOS
         // clips it, shorter and it floats.
         image.size = NSSize(width: 18, height: 18)
-        image.isTemplate = true
+        // Maestro: the head is full colour, so it is not a template.
+        image.isTemplate = false
         return image
     }
 

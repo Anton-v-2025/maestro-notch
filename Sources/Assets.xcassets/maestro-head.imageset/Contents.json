@@ -1,17 +1,17 @@
 {
   "images": [
     {
-      "filename": "menubar-maestro@1x.png",
+      "filename": "maestro-head@1x.png",
       "idiom": "universal",
       "scale": "1x"
     },
     {
-      "filename": "menubar-maestro@2x.png",
+      "filename": "maestro-head@2x.png",
       "idiom": "universal",
       "scale": "2x"
     },
     {
-      "filename": "menubar-maestro@3x.png",
+      "filename": "maestro-head@3x.png",
       "idiom": "universal",
       "scale": "3x"
     }
