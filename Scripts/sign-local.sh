@@ -21,7 +21,7 @@
 set -euo pipefail
 
 APP="${1:-/Applications/Codenotch.app}"
-CN="Codenotch Local Signing"
+CN="Maestro Notch Local Signing"
 
 if [ ! -d "$APP" ]; then
   echo "error: $APP not found — build and install it first (make run)." >&2
