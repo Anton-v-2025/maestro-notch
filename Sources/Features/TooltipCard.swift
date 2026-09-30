@@ -1076,6 +1076,7 @@ struct TooltipCard: View {
     /// the rows as plain text.
     var onFocusSession: ((pid_t) -> Void)? = nil
     @AppStorage(Preferences.showUsagePaceKey) private var showUsagePace = false
+    @AppStorage(Preferences.showSessionListKey) private var showSessionList = false
 
     /// The phase a local model is in, and the queue behind it, for the header.
     /// Ollama's relay only knows thinking; LM Studio's poll names the phase.
@@ -1092,7 +1093,7 @@ struct TooltipCard: View {
             groupCount: snapshot.windowGroupCount,
             moneyWindowCount: snapshot.windows.filter { $0.money != nil }.count,
             usageDetailGroupCount: snapshot.usageDetail?.visibleGroups.count ?? 0,
-            sessionCount: snapshot.localModel == nil ? (activity?.sessions.count ?? 0) : 0,
+            sessionCount: snapshot.localModel == nil && showSessionList ? (activity?.sessions.count ?? 0) : 0,
             sessionCap: sessionCap,
             statusMessage: snapshot.statusMessage,
             blockMessage: snapshot.block?.summary(now: now),
@@ -1129,7 +1130,7 @@ struct TooltipCard: View {
                                             schedule: deepSeekPricingSchedule,
                                             showsPricing: deepSeekPricingEnabled)
                     }
-                    if let activity, snapshot.localModel == nil {
+                    if let activity, snapshot.localModel == nil, showSessionList {
                         SessionList(summary: activity, now: now, cap: sessionCap,
                                     onFocus: onFocusSession)
                     }

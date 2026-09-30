@@ -20574,6 +20574,17 @@
         }
       }
     },
+    "Show sessions": {
+      "extractionState": "manual",
+      "localizations": {
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Показывать сессии"
+          }
+        }
+      }
+    },
     "Show usage pace": {
       "extractionState": "manual",
       "localizations": {

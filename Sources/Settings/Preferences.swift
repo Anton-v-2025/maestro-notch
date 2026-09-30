@@ -7,6 +7,7 @@ import os
 @MainActor
 final class Preferences: ObservableObject {
     static let showUsagePaceKey = "showUsagePace"
+    static let showSessionListKey = "showSessionList"
 
     /// Provider IDs that currently have a ring. Stored as the ones that are
     /// on, so a provider added later stays off until someone switches it on —
@@ -192,6 +193,11 @@ final class Preferences: ObservableObject {
 
     @Published var showUsagePace: Bool {
         didSet { defaults.set(showUsagePace, forKey: Self.showUsagePaceKey) }
+    }
+
+    /// Whether the notch card lists running agent sessions under the limits.
+    @Published var showSessionList: Bool {
+        didSet { defaults.set(showSessionList, forKey: Self.showSessionListKey) }
     }
 
     /// Whether Claude's big ring shows the day's share of the weekly limit
@@ -771,6 +777,8 @@ final class Preferences: ObservableObject {
         self.resetTimeFormat = defaults.string(forKey: Keys.resetTimeFormat)
             .flatMap(ResetTimeFormat.init(rawValue:)) ?? .automatic
         self.showUsagePace = defaults.bool(forKey: Self.showUsagePaceKey)
+        // Off by default in Maestro Notch: the card shows limits only.
+        self.showSessionList = defaults.bool(forKey: Self.showSessionListKey)
         // Off by default: it swaps what Claude's ring means, and that is a
         // choice for whoever budgets their week that way.
         self.claudeDailyPaceRing = defaults.bool(forKey: Keys.claudeDailyPaceRing)
